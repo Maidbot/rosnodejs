@@ -20,7 +20,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const CMAKE_PREFIX_PATH = process.env.CMAKE_PREFIX_PATH;
+// See https://create-react-app.dev/docs/adding-custom-environment-variables
+// to understand how to use process.env in React.
+const CMAKE_PREFIX_PATH = process.env.CMAKE_PREFIX_PATH || process.env.REACT_APP_CMAKE_PREFIX_PATH;
 if (!CMAKE_PREFIX_PATH) {
   throw new Error('Unable to find CMAKE_PREFIX_PATH environment variable. Did you source setup.bash?')
 }
